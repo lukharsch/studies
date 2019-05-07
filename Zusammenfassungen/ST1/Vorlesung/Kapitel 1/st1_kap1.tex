@@ -1,0 +1,123 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+
+\newcommand{\Fach}{Softwaretechnik I}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Wintersemester 2018/2019}
+\newcommand{\Kapitel}{1}
+\newcommand{\Titel}{Einführung und Motivation}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: Kapitel \Kapitel{} - \Titel},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{Kapitel \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny Grafiken aus den Vorlesungsfolien\\CC BY-NC-SA }
+	\begin{center}
+		\LARGE \sf \textbf{Kapitel \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section{Software Engineering}
+	\subsection*{Inhalte des Software Engineering}
+	\textbf{Systematische SW-Entwicklung}
+	\begin{itemize}
+		\item Vorgehensmodelle
+		\item Requirements Engineering
+		\item Software-Entwurf
+		\item Realisierung (Implementierung)
+	\end{itemize}
+\textbf{Qualitätssicherung}
+\begin{itemize}
+	\item Produktqualität
+	\item Prozessqualität
+\end{itemize}
+\textbf{Projektführung und -management}
+\begin{itemize}
+	\item Kostenschätzung
+	\item Planung und Organisation
+	\item Risiko-Management
+	\item Personalmanagement
+	\item Konfigurations- und "Anderungsmanagement
+	\item Qualitätsmanagement und Prozessverbesserung
+\end{itemize}
+
+\subsection*{Charakteristika der Software-Erstellung}
+Intuitiv ist Software all das, was man braucht, um einen Computer bzw. Hardwaren zum Laufen und Arbeiten zu bringen. Dies umfasst Computerprogramme, aber auch zum Beispiel die zugehörige Dokumentation und Daten.
+\subsection*{Programmieren vs. Software-Erstellung}
+\begin{table}[H]
+	
+	\begin{tabular}{c|c}
+		\hline
+		Programmieren & Software-Erstellung \\ \hline \hline
+		Eingabe - Verarbeitung - Ausgabe & Komplexes Zusammenspiel vieler Prozesse\\ \hline
+		Einheitliche Vorgehensweise & Heterogene Vorgehensweise \\ \hline
+		"`Alles nach Plan"'-Entwicklung & kleine "Anderungen $\Rightarrow$ gro"se Auswirkungen\\ \hline
+		Geradlinige Entwicklung & Häufige "Anderungen im Projektverlauf \\ \hline
+		Kaum Randbedingungen & eventuell viele Randbedingungen
+	\end{tabular}
+\end{table}
+\section{Zukunft des Software Engineering}
+\subsection*{Chancen und Risiken des Outsourcing}
+\textbf{Chancen}
+\begin{itemize}
+	\item Strategisch: Konzentration auf Kernkompetenz, höhere Qualität, Flexibilität
+	\item Finanziell
+	\item Personell: Optimale Skillentwicklung
+	\item Technisch
+\end{itemize}
+\textbf{Risiken}
+\begin{itemize}
+	\item Strategisch: Potentielle Abhängigkeit, eventueller Kompetenzverlust, Rücknahme der Auslagerung kaum möglich
+	\item Finanziell: Einsparungen nicht immer möglich
+	\item Operativ: Aufwändige Optimierung, eventuell keine Kontrolle auf Fremdpersonal
+	\item Rechtlich
+\end{itemize}
+\end{document}

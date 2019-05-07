@@ -1,0 +1,145 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\newcommand{\Fach}{Berechenbarkeit und Komplexität}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{1}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: Blatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{Kapitel \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 1}
+	$M_n$, $\forall _n \in \mathbb{N}$ abzählbar hei"st, dass es $\forall n \in \mathbb{N}$ nach Voraussetzung eine surjektive Abbildung gibt mit $f_n$: $\mathbb{N} \Rightarrow M_n$.\\
+	
+	Wir ordnen die Funktionswerte wie folgt an: 
+	\begin{center}
+		$\begin{array}{cccc}		
+			f_1\left( 1\right) & f_1\left( 2\right) & f_1\left( 3\right) & f_1\left( 4\right)\\
+			f_2\left( 1\right) & f_2\left( 2\right) & f_2\left( 3\right) & \\
+			f_3\left( 1\right) & f_3\left( 2\right) & &\\
+		\end{array}$
+	\end{center}
+	Mit
+	\begin{center}
+		$f_1\left( 1\right) \rightarrow f_1\left( 2\right) \rightarrow f_2\left( 1\right) \rightarrow f_3\left( 1\right) \rightarrow f_2\left( 2\right) \rightarrow f_1\left( 3\right) \rightarrow f_1\left( 4\right) \rightarrow f_2\left( 3\right) \rightarrow f_3\left( 2\right)$ usw...
+	\end{center}
+	Wir definieren eine Abbildung
+	\begin{center}
+		$f: \mathbb{N} \rightarrow \bigcup\limits_{n \in \mathbb{N}} M_n $\\
+		
+		demnach $f\left( 1\right) = f_1\left( 1\right)$, $f\left( 2\right) = f_1\left( 2\right)$, $f\left( 3\right) = f_2\left( 1\right)$, $f\left( 4\right) = f_3\left( 1\right)$, usw...
+	\end{center}
+	\textit{\underline{Behauptung}}: $f$ ist surjektiv\\
+	\textit{\underline{Beweis}}: Sei $x \in \bigcup\limits_{n \in \mathbb{N}} M_n$, d.h. $\exists n \in \mathbb{N}$, $x \in M$\\
+	$\Rightarrow$ Es gibt ein $l \in \mathbb{N}$ mit $f_n\left( l\right) = x$. Nach dieser Konstruktion gibt es $m \in \mathbb{N}: f\left( m\right) = f_n\left( l\right) = x$. Somit ist die Vereinigung abzählbarer Mengen wieder abzählbar
+	
+	\section*{Aufgabe 2}
+	\subsubsection*{a)}
+	Zu zeigen: $\sum_{k}^{*} = \left\lbrace 1, ..., k\right\rbrace^*$ abzählbar.\\
+	
+	Es sei $K$ aus $\mathbb{N}^+$ beliebig
+	\begin{center}
+		$\sum_{K}^{*} = \bigcup\limits_{n \in \mathbb{N}} \sum_{K}^{n}$
+	\end{center}
+	Da es nur endliche Strings der Länge n gibt (also $|\sum_{k}|^n$ viele), ist $\sum_{K}^{n}$ abzählbar.
+	\begin{center}
+		$\Rightarrow \sum_{K}^{*}$ abzählbar aus Aufgabe 1
+	\end{center}
+
+	\subsubsection*{b)}
+	Es gilt: Ein Polynom $p\left( x\right)$ des $n$-ten Grades hat höchstens $n$-viele Nullstellen. Die Anzahl der Nullstellen eines Polynoms ist abzählbar. Da $a_i \in \mathbb{Z}$ mit $i \in \left\lbrace a, ..., n\right\rbrace$ aus den ganzen Zahlen kommt, ist die Menge aller Polynome mit ganzzahligen Koeffizienten abzählbar. Daraus und aus Aufgabe 1 folgt, dass die Vereinigung der Polynome abzählbar ist.
+	\begin{center}
+		$\Rightarrow$ Die Menge der reelen algebraischen Zahlen ist abzählbar
+	\end{center}
+
+	\subsubsection*{c)}
+	Die Menge der reelen transzenten Zahlen $\mathbb{T}$ ist mit $\mathbb{T} = \mathbb{R} \backslash \mathbb{A}$ definiert, wobei $\mathbb{A}$ die Menge aller reelen algebraischen Zahlen ist.\\
+	Da $\mathbb{R}$ überabzählbar ist und eine abzählbare Menge entfernt wird, muss $\mathbb{T}$ überabzählbar sein.
+
+	\section*{Aufgabe 3}
+	\subsubsection*{a)}
+	\begin{align*}
+		\delta\left( z_0, \square\right) &= \left( z_1, 1, R\right)\\
+		\delta\left( z_0, 1\right) &= \left( z_1, 1, L\right)\\
+		\delta\left( z_1, \square\right) &= \left( z_0, 1, L\right)\\
+		\delta\left( z_1, 1\right) &= \left( z_e, 1, L\right)
+	\end{align*}
+	\begin{center}
+		$z_0 \square \rightarrow 1 z_1 \square \rightarrow z_0 1 1 \square \rightarrow z_1 \square 1 1 \square \rightarrow z_0 \square 1 1 1 \rightarrow 1 z_1 1 1 1 \rightarrow z_e 1 1 1 1$\\
+		
+		$\Rightarrow BBTM\left( 2\right) = 4$
+	\end{center}
+
+	\subsubsection*{b)}
+	\begin{center}
+		$\left( 2 \cdot 2 \cdot \left( n + 1\right)\right)^{2n}$
+	\end{center}
+	
+	\subsubsection*{c)}
+	\begin{align*}
+		\left( z_n, \square \right) &\rightarrow \left(z_e, 1, R\right)\\
+		\left( z_n, 1 \right) &\rightarrow \left(z_n, 1, R\right)
+	\end{align*}
+	\begin{center}
+		$\Rightarrow$ Somit kommt in jedem neuen Schritt mindestens eine $1$ (also 1 Holzstück) hinzu.\\
+		$\Rightarrow BB\left( \cdot\right)$ ist streng monoton wachsende Funktion
+	\end{center}
+\end{document}

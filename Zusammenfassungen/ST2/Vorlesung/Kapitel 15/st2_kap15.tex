@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+
+\newcommand{\Fach}{Softwaretechnik II}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{15}
+\newcommand{\Titel}{Aufwandsschätzung}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: Kapitel \Kapitel{} - \Titel},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{Kapitel \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny Grafiken aus den Vorlesungsfolien\\CC BY-NC-SA }
+	\begin{center}
+		\LARGE \sf \textbf{Kapitel \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section{Projekt}
+	\subsection*{Softwarequalität}
+	\begin{itemize}
+		\item quality in use - wie gut ist die Anwendung langfristig wenn in Benutzung?
+		\item external quality - Testfälle, Qualität der Anwendung
+		\item internal quality - Codequalität
+		\item process quality - wie arbeite ich?
+	\end{itemize}
+	\begin{center}
+		$\Rightarrow$ untere Punkte beeinflussen Obere
+	\end{center}
+	\section{Projektmanagement}
+	\subsection*{Erfolgsfaktoren für ein Projekt}
+	\begin{itemize}
+		\item Planung, Arbeitsteilung
+		\item gute/eingehaltene Prozesse
+		\item Controlling
+		\item Kontakt zum Auftraggeber
+		\item Team
+		\item Verantwortlichkeit
+	\end{itemize}
+
+	\section{Aufwandsschätzung}
+	\subsection*{Ermittlung des späteren Verkaufspreis}
+	Um Kosten im Projekt (also Personalkosten, Hardware- und Softwarekosten, Reise- und Ausbildungskosten) zu tilgen und dazu noch Gewinn erzielen zu können, muss der spätere Verkaufspreis richtig kalkuliert werden. Wie kann man einen solchen Verkaufspreis jetzt ermitteln, am Beispiel einer "`Where the fuck is my Bus"' App für die SWU?
+	\begin{itemize}
+		\item Analogie: Gibt es bereits ähnliche Produkte, an denen îch mich festhalten kann?
+		\item Daten: Anzahl der Nutzer, Anzahl der Busse
+		\item Fertigstellungsfrist: Bis wann muss die Anwendung fertig entwickelt sein?
+		\item Funktionalität: Was muss die Anwendung alles können?
+		\item Dokumentation: Lastenheft und Pflichtenheft
+		\item Budget des Kunden
+	\end{itemize}
+\end{document}
