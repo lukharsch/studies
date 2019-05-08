@@ -1,1 +1,1 @@
-# Repository for summaries and other documents of my studies at Ulm University
+# Repository für Zusammenfassungen einzelner Vorlesungen und Musterlösungen der Übungsblätter.
