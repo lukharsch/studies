@@ -77,8 +77,7 @@
 		$x_3 = 0,a_{30},a_{31},a_{32},a_{33}...$\\
 		$\vdots$
 	\end{center}
-	Jetzt lässt sich eine Zahl $b$ mit $b \in M$ und $b = 0,b_0,b_1,b_2,b_3,...$ bilden , wobei alle Dezimalstellen $b_i$ so gewählt werden, dass $b_i \neq a_{ii}$. Wenn beispielsweise $a_{11}$ also $2$ ist, so muss $b_1 = 0$.\\
-	Nach diesem Prinzip kann immer eine Zahl generiert werden, die noch nicht in $M$ enthalten ist. Damit ist $M$ überabzählbar.
+	Jetzt lässt sich eine Zahl $b$ mit $b \in M$ und $b = 0,b_0,b_1,b_2,b_3,...$ bilden , wobei alle Dezimalstellen $b_i$ so gewählt werden, dass $b_i \neq a_{ii}$. Wenn beispielsweise $a_{11}$ also $2$ ist, so muss $b_1 = 0$.\\Nach diesem Prinzip kann immer eine Zahl generiert werden, die noch nicht in $M$ enthalten ist. Damit ist $M$ überabzählbar.
 	
 	\section*{Aufgabe 2}
 	\subsubsection*{a)}
@@ -93,7 +92,7 @@
 		0 z_100 \square &  &z_1000 \square & &z_1 \square 000 \square & &z_e000 \square
 	\end{align*}
 	\subsubsection*{b)}
-	Die Turingmaschine $M$ extrahiert bei der Funktion $f$ alle $0$en aus der Eingabe (also auf Band 1) und schreibt sie auf Band 2. Au"serdem wird die Eingabe mit $\square$ überschrieben.\newpage
+	Die Turingmaschine $M$ extrahiert bei der Funktion $f$ alle $0$en aus der Eingabe (also auf Band 1) und schreibt sie auf Band 2. Au"serdem wird die Eingabe mit $\square$ überschrieben.
 	
 	\subsubsection*{c)}
 	Jetzt soll die 2-Band Turingmaschine $M$ für die Funktion $f$ auf eine 1-Band Turingmaschine $M'$ für dieselbe Funktion übertragen werden.
@@ -108,9 +107,51 @@
 		\delta \left( z_2,\square\right) &= \left( z_3, \square, R\right)\\
 		\delta \left( z_3,0\right) &= \left( z_0, \square, R\right)
 	\end{align*}
-	
+	\newpage
 	\section*{Aufgabe 3}
 	\subsubsection*{a)}
 	
+	\begin{align*}
+		&\text{\textbf{SLK zum LSB:}} &\text{\textbf{Addition:}}\\
+		&\delta \left( z_0,0,0\right) = \left( z_0, 0, 0, R, R\right)& \delta \left( z_1,0,0\right) = \left( z_1, 0, \square, L, L\right)\\
+		&\delta \left( z_0,0,1\right) = \left( z_0, 0, 1, R, R\right)& \delta \left( z_1,0,1\right) = \left( z_1, 1,  \square, L, L\right)\\
+		&\delta \left( z_0,1,0\right) = \left( z_0, 1, 0, R, R\right)& \delta \left( z_1,1,0\right) = \left( z_1, 1, \square, L, L\right)\\
+		&\delta \left( z_0,1,1\right) = \left( z_0, 1, 1, R, R\right)& \delta \left( z_1,1,1\right) = \left( z_2, 0, \square, L, L\right)\\
+		&\delta \left( z_0,0,\square\right) = \left( z_1, 0, \square, R, N\right)& \delta \left( z_0,1,\square\right) = \left( z_1, 1, \square, L, N\right)\\
+		&\delta \left( z_0,\square, 0\right) = \left( z_0, \square,0, N, R\right)& \delta \left( z_1,0,\square\right) = \left( z_1, 0, \square, L, N\right)\\
+		&\delta \left( z_0, 1,\square\right) = \left( z_0, 1, \square, R N\right)& \delta \left( z_1,\square, 1\right) = \left( z_1, 1, \square, L, L\right)\\
+		&\delta \left( z_0,\square, 1\right) = \left( z_0, \square,1, N, R\right)& \delta \left( z_1,\square, 0\right) = \left( z_1, 0, \square, L, L\right)\\
+		&\delta \left( z_0,\square, \square\right) = \left( z_1, \square,\square, L, L\right)& \delta \left( z_1,\square,\square\right) = \left( z_e, \square, \square, R, N\right)\\
+	\end{align*}
+	\begin{align*}
+		&\text{\textbf{Fälle bei Carry Bit:}}\\
+		& \delta \left( z_2,0,0\right) = \left( z_1, 1, \square, L, L\right)\\
+		& \delta \left( z_2,0,1\right) = \left( z_2, 0,  \square, L, L\right)\\
+		& \delta \left( z_2,1,0\right) = \left( z_2, 0, \square, L, L\right)\\
+		& \delta \left( z_2,1,1\right) = \left( z_2, 1, \square, L, L\right)\\
+		& \delta \left( z_2,1,\square\right) = \left( z_2, 0, \square, L, N\right)\\
+		& \delta \left( z_2,0,\square\right) = \left( z_1, 1, \square, L, N\right)\\
+		& \delta \left( z_2,\square, 1\right) = \left( z_2, 0, \square, L, L\right)\\
+		& \delta \left( z_2,\square, 0\right) = \left( z_1, 1, \square, L, L\right)\\
+		& \delta \left( z_2,\square,\square\right) = \left( z_e, 1, \square, R, N\right)
+	\end{align*}
+	\newpage
+	\subsubsection*{b)}
+	 $bin\left( a\right)$ auf Band 1.\\
+	 $bin\left( b\right)$ auf Band 2.
+	\begin{enumerate}
+		\item Kopiere $bin\left( a\right)$ auf Band 3
+		\item Kopiere $bin\left( b\right)$ auf Band 4 und 5
+		\item Lösche Inhalt von Band 1
+		\item Band 3 = Band 3-1
+		\item Teste auf 0 auf Band 3
+		\begin{itemize}
+			\item[] Ja $\rightarrow$ Kopiere Band 4 auf Band 1 AND Stopp
+			\item[] Nein $\rightarrow$ Weiter
+		\end{itemize}
+		\item Band 3 = Band 3-1
+		\item Band 4 = Band 4+5
+		\item GOTO Schritt 5
+	\end{enumerate}
 	
 \end{document}
