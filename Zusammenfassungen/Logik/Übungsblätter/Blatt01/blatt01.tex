@@ -141,6 +141,34 @@
 	\newpage
 	
 	\section*{Aufgabe 1.4}
+	\begin{center}
+		\textbf{Jedes Element $i$ ist in mindestens einem Kasten $j$:}\\
+		$F = \bigwedge \limits_{i = 1}^{2n+1} \bigvee \limits_{j = 1} ^{n} A_{i,j}$
+	\end{center}
+	\begin{center}
+		\textbf{In jedem Kasten $j$ befinden sich mindestens 2 Dinge $i$ und $i'$:}\\
+		$G = \bigwedge \limits_{j = 1}^{n} \bigvee \limits_{i = 1} ^{2n} \bigvee \limits_{i' = i+1} ^{2n+1} \left( A_{i,j} \wedge A_{i',j} \right)$
+	\end{center}
+	\begin{center}
+		\textbf{In jedem Kasten $j$ befinden sich höchstens 3 Dinge $i$, $i'$ und $i''$:}
+		$H = \bigwedge \limits_{j = 1}^{n} \bigwedge \limits_{i = 1} ^{2n-2} \bigwedge \limits_{i' = i+1} ^{2n-1} \bigwedge \limits_{i'' = i'+1} ^{2n} \bigwedge \limits_{i''' = i''+1} ^{2n+1} \left( A_{i,j} \wedge A_{i',j} \wedge A_{i'',j} \wedge A_{i''',j}\right)$
+	\end{center}
+	\begin{center}
+		\textbf{Jedes Element $i$ ist in höchstens einem Fach $j$ oder $j'$:}
+		$I = \bigwedge \limits_{i = 1}^{2n+1} \bigwedge \limits_{j = 1} ^{n-1} \bigwedge \limits_{j'=j+1} ^{n} \lnot \left( A_{i,j} \wedge A_{i,j'} \right)$
+	\end{center}
+	\begin{center}
+		$\Rightarrow$ Also ist die zu suchende Formel $A = \left( F \wedge G \wedge H \wedge I \right)$
+	\end{center}
 	
+	\section*{Aufgabe 1.5}
+	\begin{center}
+		$F = A \wedge B \wedge \left( \overline{G} \vee D\right) \wedge \overline{C} \wedge \left( \overline{A} \vee \overline{B} \vee \overline{D} \vee E\right) \wedge G \wedge \left( \overline{E} \vee C\right)$\\
+	\end{center}
+	Diese Formel wird nun so umgewandelt, dass sie nur aus Implikationen besteht:
+	\begin{align*}
+		F' = &\left( 1 \rightarrow A\right) \wedge \left( 1 \rightarrow B\right) \wedge \left( G \rightarrow D\right) \wedge \left( C \rightarrow 0\right) \wedge \\&\left( \left(A \wedge B \wedge D\right) \rightarrow E\right) \wedge \left( 1 \rightarrow G\right) \wedge \left( E \rightarrow C\right)
+	\end{align*}
+	Auf diese Formel $F'$ wird nun der Markierungsalgorithmus angewandt:
 	
 \end{document}
