@@ -170,5 +170,11 @@
 		F' = &\left( 1 \rightarrow A\right) \wedge \left( 1 \rightarrow B\right) \wedge \left( G \rightarrow D\right) \wedge \left( C \rightarrow 0\right) \wedge \\&\left( \left(A \wedge B \wedge D\right) \rightarrow E\right) \wedge \left( 1 \rightarrow G\right) \wedge \left( E \rightarrow C\right)
 	\end{align*}
 	Auf diese Formel $F'$ wird nun der Markierungsalgorithmus angewandt:
-	
+	\begin{enumerate}
+		\item Markiere $A$, $B$ und $G$; $M = \left\lbrace A, B, G\right\rbrace$
+		\item Markiere $D$ wegen Hornklausel $\left( G \rightarrow D \right)$; $M = \left\lbrace A, B, G, D\right\rbrace$
+		\item Markiere $E$ wegen Hornklausel $\left( \left(A \wedge B \wedge D\right) \rightarrow E\right)$; $M = \left\lbrace A, B, G, D, E\right\rbrace$
+		\item Markiere $C$ wegen Hornklausel $\left( E \rightarrow C\right)$; $M = \left\lbrace A, B, G, D, E, C\right\rbrace$
+		\item Brich ab mit "`unerfüllbar"', wegen Hornklausel $\left( C \rightarrow 0\right)$, $C$ ist aber schon markiert.
+	\end{enumerate}
 \end{document}
