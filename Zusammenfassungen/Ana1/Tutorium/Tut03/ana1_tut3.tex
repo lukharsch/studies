@@ -138,4 +138,43 @@ frametitlebackgroundcolor=darkgreen,
 		&\overset{\triangle\text{-Ungl.}}{\leq} \left|\frac{13}{m}\right| + \left|\frac{13}{n}\right| \leq \frac{13}{m} + \frac{13}{m} = \frac{26}{m} < \epsilon \Leftrightarrow \frac{26}{\epsilon} < m\\
 		&\Rightarrow \text{Setze } n_0 = \left\lceil\frac{26}{\epsilon}\right\rceil + 1
 	\end{align*}
+	
+	\section{Reihen}
+	\begin{defi}
+		Sei $\left(a_n\right)_{n \in \mathbb{N}}$ eine Folge. Setze $s_n = \sum_{k = m}^{n} a_k, k \in \mathbb{N}$.\\
+		Dann hei"st $s_n$ die $n$-te Partialsumme von $\left(a_n\right)_{n \in \mathbb{N}}$, die Folge der Partialsummen $\left(s_n\right)_{n \in \mathbb{N}}$ unendliche Reihe, bezeichnet $\sum_{n = m}^{\infty} a_n$.
+	\end{defi}
+	
+	\subsection{Wichtige Reihen:}
+	\begin{itemize}
+		\item Harmonische Reihe: $\sum_{k = 1}^{\infty} \frac{1}{k}$ divergiert
+		\item Geometrische Reihe: $\sum_{k = 0}^{\infty} q^k = \frac{1}{1-q}$ konvergiert bei $\left|q\right| < 1$
+		\item $\sum_{k = 1}^{\infty} \frac{1}{k^\alpha} = \begin{cases}
+			< \infty, \alpha > 1 \Rightarrow \text{konvergiert} \\ 
+			= \infty, \alpha \leq 1 \Rightarrow \text{divergiert}
+		\end{cases}$
+	\end{itemize}
+	\newpage
+
+	\subsection{Konvergenzkriterien}
+	\subsubsection{Notwendiges Kriterium / Trivialkriterium}
+	\begin{defi}
+		Sei $\sum_{n=m}^{\infty} a_n$ konvergent, dann gilt $a_n \xrightarrow{n \rightarrow \infty} 0$
+	\end{defi}
+	\underline{Achtung:} nur notwendig, nicht hinreichend
+	\begin{center}
+		$\Rightarrow$ eignet sich nur zum Zeigen von Divergenz (dann, wenn Folge nicht gegen 0 konvergiert)
+	\end{center}
+	\begin{bsp}
+		\begin{center}
+			$\sum_{n = 1}^{\infty} \frac{n}{n+1}$, $a_n = \frac{n}{n+1} \xrightarrow{n \rightarrow \infty} 1$, also nicht 0 \\
+			$\Rightarrow$ Reihe divergiert
+		\end{center}
+	\end{bsp}
+
+	\subsubsection{Leibnizkriterium}
+	\begin{defi}
+		Sei $\left(a_n\right)_{n \in \mathbb{N}}$ eine reele, monoton fallende Nullfolge mit $a_n > 0$, $\forall n \in \mathbb{N}$.\\
+		Dann konvergiert die alternierende Reihe $\sum_{n = m}^{\infty} \left(-1\right)^n a_n$
+	\end{defi}
 \end{document}
