@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{extarrows}
+\usepackage{xcolor}
+\definecolor{darkblue}{RGB}{0,0,102}
+\definecolor{darkred}{RGB}{153,0,0}
+\definecolor{darkgreen}{RGB}{0,102,0}
+
+\newcommand{\Fach}{Analysis I}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{3}
+\newcommand{\Titel}{}
+
+% Task
+\mdtheorem[
+linecolor=darkblue,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkblue,
+]{bsp}{Beispiel}[section]
+
+%Tipp
+\mdtheorem[
+linecolor=blue,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkred,
+]{tipp}{Hinweis}[section]
+
+%Definition
+\mdtheorem[
+linecolor=darkgreen,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkgreen,
+]{defi}{Definition}[section]
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: Tutorium \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{Tutorium \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{Tutorium \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section{Häufungspunkte}
+	\begin{bsp}
+		Bestimme die Häufungspunkte von folgender Folge:
+		\begin{center}
+			$a_n = \frac{1}{2^n} + \left(-1\right)^n$, $n \in \mathbb{N}_0$
+		\end{center}
+	\end{bsp}
+	Bestimme Teilfolgen $a_{2n}$ und $a_{2n+1}$
+	\begin{align*}
+		a_{2n} &= \frac{1}{2^{2n}} + \left(-1\right)^{2n} = \frac{1}{4^n} + 1 \xrightarrow{n\rightarrow\infty} 1 \Rightarrow \left(a_n\right)_{n \in \mathbb{N}_0} \text{hat HP} 1 \Rightarrow \limsup\\
+		a_{2n+1} &= \frac{1}{2^{2n+1}} + \left(-1\right)^{2n+1} = \frac{1}{2^{2n} \cdot 2} - 1 = \frac{1}{4^n \cdot 2} -1 \xrightarrow{n\rightarrow\infty} -1 \\
+		&\Rightarrow \left(a_n\right)_{n \in \mathbb{N}_0} \text{hat HP} -1 \Rightarrow \liminf
+	\end{align*}
+	
+	\section{Cauchyfolgen}
+	\begin{defi}
+		Eine Folge $\left(a_n\right)_{n \in \mathbb{N}_0}$ hei"st Cauchyfolge genau dann, wenn
+		\begin{center}
+			$\forall \epsilon > 0$ $\exists n_0 \in \mathbb{N}$ $\forall n,m \geq n_0 : \left|a_n - a_m \right|$
+		\end{center}
+	\end{defi}
+	\begin{bsp}
+		Ist die Folge $a_n$ Cauchyfolge?
+		\begin{center}
+			$a_n = \frac{1}{n^2+n}$
+		\end{center}
+	\end{bsp}
+	Es seien $n,m \in \mathbb{N}$ mit $n, m \geq n_0$ und $\epsilon > 0$ beliebig. O.B.d.A $n \geq m$\\
+	\begin{align*}
+		\left|a_m - a_n\right| &= \left|\frac{1}{m^2+m} - \frac{1}{n^2+n}\right| = \left|\frac{n^2+n-m^2-m}{\left(n^2+n\right) \left(m^2+m\right)}\right| \leq \left|\frac{n^2+n}{\left(n^2+n\right) \left(m^2+m\right)}\right|\\
+		&\left|\frac{1}{m^2+m}\right| = \frac{1}{m^2+m} \leq \frac{1}{m} < \epsilon \Leftrightarrow \frac{1}{\epsilon} < m\\
+		&\Rightarrow \text{Setze } n_0 = \left\lceil\frac{1}{\epsilon}\right\rceil + 1
+	\end{align*}
+	\begin{bsp}
+		Ist die Folge $a_n$ Cauchyfolge?
+		\begin{center}
+			$a_n = \frac{7n^3-13n^2}{n^3} = 7 - \frac{13}{n}$
+		\end{center}
+	\end{bsp}
+	Es seien $n,m \in \mathbb{N}$ mit $n, m \geq n_0$ und $\epsilon > 0$ beliebig. O.B.d.A $n \geq m$\\
+	\begin{align*}
+		\left|a_n - a_m\right| &= \left|7-\frac{13}{n}-\left(7-\frac{13}{m}\right)\right| = \left|\frac{13}{m} - \frac{13}{n}\right| \leq \left|\frac{13}{m} + \frac{13}{n}\right|\\
+		&\overset{\triangle\text{-Ungl.}}{\leq} \left|\frac{13}{m}\right| + \left|\frac{13}{n}\right| \leq \frac{13}{m} + \frac{13}{m} = \frac{26}{m} < \epsilon \Leftrightarrow \frac{26}{\epsilon} < m\\
+		&\Rightarrow \text{Setze } n_0 = \left\lceil\frac{26}{\epsilon}\right\rceil + 1
+	\end{align*}
+\end{document}
