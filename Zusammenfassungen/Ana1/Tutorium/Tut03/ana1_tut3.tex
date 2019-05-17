@@ -149,7 +149,7 @@ frametitlebackgroundcolor=darkgreen,
 	\begin{itemize}
 		\item Harmonische Reihe: $\sum_{k = 1}^{\infty} \frac{1}{k}$ divergiert
 		\item Geometrische Reihe: $\sum_{k = 0}^{\infty} q^k = \frac{1}{1-q}$ konvergiert bei $\left|q\right| < 1$
-		\item $\sum_{k = 1}^{\infty} \frac{1}{k^\alpha} = \begin{cases}
+		\item $\sum_{k=1}^{\infty} \frac{1}{k^\alpha} = \begin{cases}
 			< \infty, \alpha > 1 \Rightarrow \text{konvergiert} \\ 
 			= \infty, \alpha \leq 1 \Rightarrow \text{divergiert}
 		\end{cases}$
@@ -177,4 +177,93 @@ frametitlebackgroundcolor=darkgreen,
 		Sei $\left(a_n\right)_{n \in \mathbb{N}}$ eine reele, monoton fallende Nullfolge mit $a_n > 0$, $\forall n \in \mathbb{N}$.\\
 		Dann konvergiert die alternierende Reihe $\sum_{n = m}^{\infty} \left(-1\right)^n a_n$
 	\end{defi}
+	\begin{bsp}
+		\begin{center}
+			$\sum_{k=1}^{\infty} \left(-1\right) ^k \frac{1}{k}$\\
+			$\Rightarrow a_k = \frac{1}{k} > \frac{1}{k+1} = a_{k+1}, \frac{1}{k} > 0 \forall k \in \mathbb{N} \frac{1}{k} \xrightarrow{k \rightarrow \infty} 0$\\
+			$\Rightarrow$ Reihe konvergiert
+		\end{center}
+	\end{bsp}
+	\underline{Aber:} keine absolute Konvergenz, da $\sum_{k=1}^{\infty} \left|\left(-1\right)^k \frac{1}{k}\right| = \sum_{k=1}^{\infty} \frac{1}{k} = \infty$, da harmonische Reihe
+	\newpage
+	
+	\subsubsection{Wurzelkriterium}
+	\begin{defi}
+		Sei $\sum_{n = m}^{\infty} a_n$ eine Reihe
+		\begin{enumerate}[i)]
+			\item Falls $\limsup \limits_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} < 1$, dann konvergiert die Reihe absolut
+			\item Falls $\limsup \limits_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} > 1$, dann divergiert die Reihe
+			\item Falls $\limsup \limits_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = 1$, dann lässt sich keine Aussage treffen
+		\end{enumerate}
+	\end{defi}
+	\begin{bsp}
+		\begin{center}
+			$\sum_{n=1}^{\infty} \frac{n}{5^n}$\\
+			$\Rightarrow \limsup \limits_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = \limsup \limits_{n \rightarrow \infty} \sqrt[n]{\frac{n}{5^n}} = \limsup \limits_{n \rightarrow \infty} \frac{\sqrt[n]{n}}{5} = \frac{1}{5} < 1 $\\
+			$\Rightarrow$ Reihe konvergiert absolut
+		\end{center}
+	\end{bsp}
+
+	\subsubsection{Quotientenkriterium}
+	\begin{defi}
+		Sei $\sum_{n = m}^{\infty} a_n$ eine Reihe, $a_n \neq 0$, $\forall n \geq m$
+		\begin{enumerate}[i)]
+			\item  Falls $\limsup \limits_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_n}\right| < 1$, dann konvergiert die Reihe absolut
+			\item  Falls $\limsup \limits_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_n}\right| \geq 1$, dann divergiert die Reihe
+		\end{enumerate}
+	\end{defi}
+	\newpage
+	\begin{bsp}
+		\begin{center}
+			$\sum_{n=1}^{\infty} \frac{n^3}{2^n}$
+		\end{center}
+		\begin{align*}
+			&\Rightarrow \limsup \limits_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_n}\right| = \limsup \limits_{n \rightarrow \infty} \left| \frac{\frac{\left( n+1\right)^3}{2^{n+1}}}{\frac{n^3}{2^n}}\right|\\
+			&= \limsup \limits_{n \rightarrow \infty} \left| \frac{\left( n+1\right)^3}{2^{n+1}} \cdot \frac{2^n}{n^3}\right|\\
+			&= \Rightarrow \limsup \limits_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_n}\right| = \limsup \limits_{n \rightarrow \infty} \left| \frac{\frac{\left( n+1\right)^3}{2^{n+1}}}{\frac{n^3}{2^n}}\right|\\ 
+			&= \limsup \limits_{n \rightarrow \infty} \frac{\left(n+1\right)^3}{2n^3} = \limsup \limits_{n \rightarrow \infty} \frac{n^3 + 3n^2 + 3n + 1}{2n^3} = \limsup \limits_{n \rightarrow \infty} \frac{1 + \frac{3}{n} + \frac{3}{n^2} + \frac{1}{n^3}}{2}\\
+			&= \frac{1}{2} < 1\\
+			&\Rightarrow \text{Reihe konvergiert absolut}			
+		\end{align*}
+	\end{bsp}
+
+	\subsubsection{Minorantenkriterium}
+	\begin{defi}
+		Seien $\left(a_n\right)_{n \in \mathbb{N}}$, $\left(b_n\right)_{n \in \mathbb{N}}$ Folgen mit $0 \leq a_n \leq b_n$. Ist $\sum_{n=m}^{\infty} a_n$ divergent, so divergiert auch $\sum_{n=m}^{\infty} b_n$.\\
+		$a_n$ ist dann die Minorante.
+	\end{defi}
+	\begin{bsp}
+		\begin{center}
+			$\underbrace{\sum_{n=2}^{\infty} \frac{2n+1}{n^2-1}}_{:= b_n}$ 
+		\end{center}
+		\begin{center}
+			$\frac{2n+1}{n^2-1} \geq \frac{2n}{n^2} = \frac{2}{n} \geq 0$, $\forall n \geq 2$\\
+			$\Rightarrow 2 \cdot \sum_{n=2}^{\infty} \frac{1}{n}$ ist die harmonische Reihe und divergiert\\
+			$\Rightarrow$ Reihe $b_n$ divergiert
+		\end{center}
+	\end{bsp}
+	\newpage
+	
+	\subsubsection{Majorantenkriterium}
+	\begin{defi}
+		Seien $\left(a_n\right)_{n \in \mathbb{N}}$, $\left(b_n\right)_{n \in \mathbb{N}}$ Folgen mit $\left|a_n\right| \leq b_n$. Ist $\sum_{n=m}^{\infty} b_n$ konvergent, so konvergiert auch $\sum_{n=m}^{\infty} a_n$ und es gilt $\sum_{n=m}^{\infty} \left|a_n\right| < \sum_{n=m}^{\infty} b_n$.\\
+		$b_n$ ist dann die Majorante.
+	\end{defi}
+	\begin{bsp}
+		\begin{center}
+			$\sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+1}$
+		\end{center}
+		\begin{align*}
+			\Rightarrow &a_n = \frac{\sqrt{n}}{n^2+1}\\
+			&\left| \frac{\sqrt{n}}{n^2+1} \right| =  \frac{\sqrt{n}}{n^2+1} \leq \frac{\sqrt{n}}{n^2} = \frac{n^{\frac{1}{2}}}{n^2} = n^{\frac{1}{2}-2} = n^{-\frac{3}{2}} = \frac{1}{n^{\frac{3}{2}}}\\
+			\Rightarrow &\text{ Mit } \alpha = \frac{3}{2} > 1 \text{ gilt nach Definition } \sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}} \text{ konvergiert.}\\
+			\Rightarrow &\text{Reihe konvergiert absolut.}
+		\end{align*}
+	\end{bsp}
+
+	\subsection{Aufgaben}
+		\begin{align*}
+			&\text{i) } \sum_{n=1}^{\infty} \frac{1}{\frac{1}{2} \left|\sin\left(n\right)\right| + \frac{1}{2}n} &\text{iii) } \sum_{k=0}^{\infty} \frac{\left(-1\right)^k}{\sqrt[k]{k}}\\
+			&\text{ii) } \sum_{k=0}^{\infty} \left(\frac{n}{n+1}\right)^{n^2} &\text{iv) } \sum_{k=1}^{\infty} \frac{\left(-1\right)^k}{k!}
+		\end{align*}
 \end{document}
