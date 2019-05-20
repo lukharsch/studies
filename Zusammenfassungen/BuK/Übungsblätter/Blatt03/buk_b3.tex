@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+%\usepackage{algorithm}
+%\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+
+\newcommand{\Fach}{Berechenbarkeit und Komplexität}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{3}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+%\lstset{ %
+%	language=java,
+%	basicstyle=\footnotesize\tt,
+%	showtabs=false,
+%	tabsize=2,
+%	captionpos=b,
+%	breaklines=true,
+%	extendedchars=true,
+%	showstringspaces=false,
+%	flexiblecolumns=true,
+%}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 1}
+	\subsubsection*{a)}
+	\begin{algorithm}[H]
+		\KwData{e = 1, x = 1\;}
+		\ForEach{n}{e = e $\cdot$ x\; x = x + 1\;}
+		\caption{Fakultät}
+	\end{algorithm}
+	\subsubsection*{b)}
+	\begin{algorithm}[H]
+		\KwData{$x_2$ = $x_1$ + 1, $x_3$ = $x_1$, $x_4$ = 1, $x_5$ = 1\;}
+		\ForEach{$x_2$}{
+			\ForEach{$x_3$}{
+				$x_4$ = 0\;
+			}
+			\ForEach{$x_4$}{
+			A\;
+			$x_5$ = 0\;
+			}
+		}
+		\caption{Fakultät}
+	\end{algorithm}
+	
+	\section*{Aufgabe 3}
+	\begin{algorithm}[H]
+		\KwData{counter := 0}
+		\While{n $\neq$ 0}{
+			\If{n MOD 2 = 1}{counter := counter + 1 \;}
+			
+			
+			n := n DIV 2\;
+		}
+		
+		\eIf{counter MOD 2 = 0}{
+			$x_0$ := 1\;
+		}{
+			$x_0$ = 0\;
+		}
+		\caption{WHILE-Programm}
+	\end{algorithm}
+	Das Ergebnis steht in $x_0$.
+	
+\end{document}
