@@ -71,24 +71,62 @@
 	\section*{Aufgabe 1}
 	\subsubsection*{a)}
 	\begin{algorithm}[H]
-		\KwData{e = 1, x = 1\;}
+		\KwData{$e = 1$, $x = 1$\;}
 		\ForEach{n}{e = e $\cdot$ x\; x = x + 1\;}
 		\caption{Fakultät}
 	\end{algorithm}
 	\subsubsection*{b)}
 	\begin{algorithm}[H]
-		\KwData{$x_2$ = $x_1$ + 1, $x_3$ = $x_1$, $x_4$ = 1, $x_5$ = 1\;}
-		\ForEach{$x_2$}{
-			\ForEach{$x_3$}{
-				$x_4$ = 0\;
-			}
-			\ForEach{$x_4$}{
-			A\;
-			$x_5$ = 0\;
-			}
+		\KwData{$k = 1$\;}
+		\ForEach{$x_1$}{
+			k = 0\;
 		}
-		\caption{Fakultät}
+		\ForEach{k}{
+			A\;
+		}
+		k = 0\;
+		\ForEach{$x_1$}{
+			k = 1\;
+		}
+		\ForEach{k}{
+			B\;
+		}
+		\caption{IF-Anweisung}
 	\end{algorithm}
+	\subsubsection*{c)}
+	\begin{algorithm}[H]
+		\KwData{$y = m-n$, $x_1 = 1$\;}
+		\ForEach{y}{
+			$x_1$ = 0\;
+		}
+		\ForEach{$x_1$}{
+			y = n-m\;
+		}
+		\caption{Minus-Operator}
+	\end{algorithm}
+	\subsubsection*{d)}
+	\begin{algorithm}[H]
+		\KwData{$x_1 = x_2$, $x_4 = x_3 - x_1$}
+		\ForEach{$x_4$}{
+			P\;
+		}
+		\caption{FOR-Schleife}
+	\end{algorithm}
+	\subsubsection*{e)}
+	\begin{algorithm}[H]
+		\KwData{$n$}
+		\For{$x_1$ = 2 \KwTo{n-1}}{
+			\If{n MOD $x_1$}{0\;}
+		}
+		1\;
+		\caption{Primzahltest}
+	\end{algorithm}
+	
+	\section*{Aufgabe 2}
+	Sei $g\left(k, n\right)$ LOOP-berechenbar, dann existiert ein $P$ mit $x \in \mathbb{N}$ LOOP-Schleifen, welches $\underbrace{g\left(k, n\right)}_{k \in \mathbb{N^+}, n \in \mathbb{N}}$ berechnet.\\
+	Es gilt $g\left(x+1, n\right) = f_{x+1}\left(n\right)$.\\
+	$f_{x+1}\left(n\right)$ kann durch $P$ mit $x+1$ LOOP-Schleifen berechnet werden, aber nicht durch $P$ mit $x$ LOOP-Schleifen berechnet werden.\\
+	$\Rightarrow$ Widerspruch zur Annahme
 	
 	\section*{Aufgabe 3}
 	\begin{algorithm}[H]
