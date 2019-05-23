@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{extarrows}
+\usepackage{xcolor}
+\definecolor{darkblue}{RGB}{0,0,102}
+\definecolor{darkred}{RGB}{153,0,0}
+\definecolor{darkgreen}{RGB}{0,102,0}
+
+\newcommand{\Fach}{Analysis I}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{4}
+\newcommand{\Titel}{}
+
+% Task
+\mdtheorem[
+linecolor=darkblue,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkblue,
+]{bsp}{Beispiel}[section]
+
+%Tipp
+\mdtheorem[
+linecolor=blue,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkred,
+]{tipp}{Hinweis}[section]
+
+%Definition
+\mdtheorem[
+linecolor=darkgreen,
+frametitlefont=\sffamily\bfseries\color{white},
+frametitlebackgroundcolor=darkgreen,
+]{defi}{Definition}[section]
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: Tutorium \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{Tutorium \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{Tutorium \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\begin{enumerate}[i)]
+		\item Die Funktion $f: \mathbb{Z} \rightarrow \mathbb{Z}$, $n \mapsto 2n$ ist injektiv, surjektiv oder bijektiv?
+		\begin{itemize}
+			\item injektiv: $f\left(n_1\right) = f\left(n_2\right) \Rightarrow 2n_1 = 2n_2 \Leftrightarrow n_1 = n_2$
+			\item nicht surjektiv: für $y = 3 \in \mathbb{Z}$ $\nexists n$, sodass $f\left(n\right) = 3$
+		\end{itemize}
+		\item $\left(a_n\right)_{n \in \mathbb{N}}$ konvergiert $\Leftrightarrow$ Teilfolgen $\left(a_{2n}\right)_{n \in \mathbb{N}}$, $\left(a_{2n+1}\right)_{n \in \mathbb{N}}$ konvergiert. Wahr oder \underline{Falsch}?
+		\begin{itemize}
+			\item $\Rightarrow a_n = \left(-1\right)^n \Rightarrow a_{2n} = 1$, $a_{2n+1} -1$   
+		\end{itemize}
+		\item $\sum_{n=0}^{\infty} a_n$ konvergiert $\Leftrightarrow \left(a_n\right)_{n \in \mathbb{N}}$ eine Nullfolge ist. Wahr oder \underline{Falsch}?
+		\begin{itemize}
+			\item z.B. Harmonische Reihe
+		\end{itemize}
+	\end{enumerate}
+	
+	\section{Cauchyprodukt}
+	\begin{defi}
+		Seien $\sum_{k=0}^{\infty} a_k$ und $\sum_{k=0}^{\infty} b_k$ zwei absolut konvergierende Reihen für $k \in \mathbb{N}_0$.\\
+		Sei $c_k := \sum_{j=0}^{k} a_k \cdot b_{k-j}$.\\
+		
+		$\Rightarrow$ Dann konvergiert auch $\sum_{k=0}^{\infty} c_k$ absolut und es gilt\\
+		$\sum_{k=0}^{\infty} c_k = \left(\sum_{k=0}^{\infty} a_k\right) \cdot \left(\sum_{k=0}^{\infty} b_k\right)$\\
+		
+		\underline{Achtung:} Die Umkehrung gilt im Allgemeinen nicht!
+	\end{defi}
+	\begin{bsp}
+		\begin{align*}
+			&e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!} &e^y = \sum_{k=0}^{\infty} \frac{y^k}{k!}
+		\end{align*}
+		\begin{center}
+			Zu zeigen: $e^x \cdot e^y = e^{x+y}$
+		\end{center}
+	\end{bsp}
+	\begin{align*}
+		e^x \cdot e^y &= \sum_{k=0}^{\infty} \frac{x^k}{k!} \cdot \sum_{k=0}^{\infty} \frac{y^k}{k!}\\
+		&\overset{\text{\tiny CP}}{=} \sum_{n=0}^{\infty} \underbrace{\sum_{k=0}^{\infty} \frac{x^k}{k!} \cdot \frac{y^{n-k}}{\left(n-k\right)!}}_{= c_k}\\
+		&= \sum_{n=0}^{\infty} \sum_{k=0}^{n} \frac{1}{k! \cdot \left(n-k\right)!} \cdot x^k \cdot y^{n-k} \cdot \underbrace{\frac{n!}{n!}}_{\text{Nahrhafte 1}}\\
+		&= \sum_{n=0}^{\infty} \underbrace{\sum_{k=0}^{n} \binom{n}{k} \cdot x^k \cdot y^{n-k}}_{\text{Binom. Lehrsatz }:= \left(x-y\right)^n} \cdot \frac{1}{n!}\\
+		&\overset{\text{\tiny Bin}}{\underset{\text{\tiny LS}}{=}} \sum_{n=0}^{\infty} \left(x+y\right)^n \cdot \frac{1}{n!}\\
+		&= \sum_{n=0}^{\infty} \frac{\left(x+y\right)^n}{n!}\\
+		&\overset{\text{\tiny Def}}{\underset{\text{\tiny Exp}}{=}} e^{x+y}
+	\end{align*}
+	
+	\section{Potenzreihe}
+\end{document}
