@@ -136,6 +136,36 @@ frametitlebackgroundcolor=darkgreen,
 		&= \sum_{n=0}^{\infty} \frac{\left(x+y\right)^n}{n!}\\
 		&\overset{\text{\tiny Def}}{\underset{\text{\tiny Exp}}{=}} e^{x+y}
 	\end{align*}
-	
+	\newpage
 	\section{Potenzreihe}
+	\begin{defi}
+		Für $x_0 \in \mathbb{R}$ und $\left(a_k\right)_{k \in \mathbb{N}}$ hei"st $\sum_{k=0}^{\infty} a_k \cdot \left(x-x_0\right)^k := P\left(x,x_o\right)$ Potenzreihe mit Entwicklungspunkt $x_0$.\\
+		
+		Für die Konvergenz gilt:
+		\begin{enumerate}[1)]
+			\item Die Potenzreihe konvergiert immer im Entwicklungspunkt $x_0$
+			\item $\exists ! R \in \left[0, \infty\right]$: 
+			\begin{enumerate}[]
+				\item $\left|x-x_0\right| < R$ $\Rightarrow$ Potenzreihe konvergiert
+				\item $\left|x-x_0\right| > R$ $\Rightarrow$ Potenzreihe divergiert
+				\item $\left|x-x_0\right| = R$ $\Rightarrow$ keine Aussage
+			\end{enumerate}
+		\end{enumerate}
+		$R$ hei"st Konvergenzradius, $\left(x_0-R, x_0+R\right)$ hei"st Konvergenzbereich.\\
+		
+		$R$ kann nun auf 2 Arten bestimmt werden:
+		\begin{enumerate}[1)]
+			\item Formel von Euler:\\Ist $a_k \neq 0$, $\forall k : \exists \lim\limits_{k \rightarrow \infty} \left|\frac{a_k}{a_{k+1}}\right|$, so gilt $R = \lim\limits_{k \rightarrow \infty} \left|\frac{a_k}{a_{k+1}}\right|$
+			\item Formel von Cauchy-Hadamard:\\$\alpha := \limsup\limits_{k \rightarrow \infty} \sqrt[k]{\left|a_k\right|} \Rightarrow R = \frac{1}{\alpha}$, wobei\\
+				\hspace*{1cm} $\alpha = + \infty \Rightarrow R$\\
+				\hspace*{1cm} $\alpha = 0 \Rightarrow R = + \infty$
+		\end{enumerate}
+	\end{defi}
+	
+	\subsection{Aufgaben}
+	\begin{align*}
+		&\text{i) } \sum_{k=0}^{\infty} k! \cdot b^{-k^2} \cdot x^k \text{ mit } b > 1 &\text{iv) }& \sum_{k=0}^{\infty} 2^{-k} \cdot k \cdot \left(x^2\right)^k\\
+		&\text{ii) } \sum_{k=0}^{\infty} \left(\frac{k+1}{k}\right)^{k^2} \cdot x^k &\text{v) }& \sum_{k=0}^{\infty} b^{\sqrt{k}} \cdot x^k \text{, } b > 0\\
+		&\text{iii) } \sum_{k=0}^{\infty} k^5 \cdot 5^k \cdot x^k &&
+	\end{align*}
 \end{document}
