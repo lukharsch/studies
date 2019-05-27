@@ -1,0 +1,193 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+%\usepackage{algorithm}
+%\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+
+\newcommand{\Fach}{Berechenbarkeit und Komplexität}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{4}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+%\lstset{ %
+%	language=java,
+%	basicstyle=\footnotesize\tt,
+%	showtabs=false,
+%	tabsize=2,
+%	captionpos=b,
+%	breaklines=true,
+%	extendedchars=true,
+%	showstringspaces=false,
+%	flexiblecolumns=true,
+%}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 1}
+	\subsubsection*{a)}
+	\begin{algorithm}[H]
+		\KwData{$x_1$ Eingabe\;}
+		\If{$x_1 = 0$}{GOTO M0\;}
+		\If{$x_1 = 1$}{GOTO M0\;}
+		$x_4 = \left(x_1 DIV 2\right) + 1$\;
+		\For{$x_2 = 2$ \KwTo $x_4$}{
+			\For{$x_3 = x_2$ \KwTo $x_4$}{
+			\If{$x_1 = x_2 + x_3$}{GOTO M0\;}
+			}
+		}
+		$x_0 = 1$\;
+		HALT\;
+		\caption{Funktion f: Primzahltest}
+	\end{algorithm}
+	
+	\begin{algorithm}{H}
+		$x_0 = 0$\;
+		HALT\;
+		\caption{M0}
+	\end{algorithm}
+	
+	Achtung: \textbf{for}-Schleifen sind hier eigentlich nicht erlaubt, können aber in einem Hilfsprogramm mit \textbf{if}-Anweisungen konstruiert werden.
+	
+	\subsubsection*{b)}
+	\begin{algorithm}[H]
+		$x_0 = h\left(x_2\right)$ \tcp{n}
+		$x_1 = h\left(x_3\right)$ \tcp{m}
+		\caption{Funktion g: "`erweiterter"' Primzahltest}
+	\end{algorithm}
+
+	\vspace{1cm}
+
+	\begin{algorithm}[H]
+		\KwData{$x_1 =$ Eingabe\;}
+		$x_2 = 0$\;
+		$x_3 = 2$\;
+		\caption{Funktion h}
+	\end{algorithm}
+
+	\begin{algorithm}[H]
+		\If{$x_2 = x_1$}{GOTO M3\;}
+		$x_3 = x_3 + 1$
+		\caption{M1}
+	\end{algorithm}
+
+	\begin{algorithm}[H]
+		\eIf{$f \left(x_3\right) = 1$}{
+			$x_2 = x_2+1$\;
+			GOTO M1\;
+		}{
+			$x_3 = x_3 + 1$\;
+			GOTO M2\;
+		}
+		\caption{M2}
+	\end{algorithm}
+
+	\begin{algorithm}[H]
+		$x_0 = x_3$\;
+		HALT\;
+		\caption{M3}
+	\end{algorithm}
+	\section*{Aufgabe 2}
+	\subsubsection*{a)}
+	\begin{align*}
+		fak\left(1\right)& = 1\\
+		fak\left(n\right)& = mult\left(n, fak\left(n-1\right)\right)
+	\end{align*}
+	\begin{center}
+		$\Rightarrow$ Verknüpfungen primitiv rekursiver Funktionen sind ebenfalls primitiv rekursiv
+	\end{center}
+
+	\subsubsection*{b)}
+	\begin{align*}
+		abs\left(n,m\right)& = sub\left(n,m\right) + sub\left(m,n\right)
+	\end{align*}
+	\begin{center}
+		$\Rightarrow$ $sub$ ist primitiv rekursiver, damit ist $abs$ ebenfalls primitiv rekursiv
+	\end{center}
+	\newpage
+	\subsubsection*{c)}
+	\begin{align*}
+		max\left(n,m\right)& = add\left(sub\left(n,m\right),m\right)
+	\end{align*}
+	\begin{center}
+		$\Rightarrow$ $add$ und $sub$ sind primitiv rekursiv, damit auch $max$
+	\end{center}
+
+	\section*{Aufgabe 3}
+	\subsubsection*{a)}
+	\begin{enumerate}[i)]
+		\item \textbf{IA:} $a\left(1,0\right) = a\left(0,1\right) = 2$\\
+			\textbf{IH:} $a\left(1,n\right) = n + 2$\\
+			\textbf{IS:} $a\left(1, n+1\right) = a\left(0,a\left(1,n\right)\right) = a\left(1,n\right)+1 \overset{\text{IH}}{=} n+3$ \hfill $\square$
+		\item \textbf{IA:} $a\left(2,0\right) = a\left(1,1\right) = a\left(0,2\right) = 3$\\
+			\textbf{IH:} $a\left(2,y\right) = 2y+3$\\
+			\textbf{IS:} $a\left(2, y+1\right) = a\left(1,a\left(2,y\right)\right) = 0$\\
+			\hspace*{0.55cm} $a\left(1, 2y+3\right) = 2y+5 = 2\left(y+1\right)+3$ \hfill $\square$
+	\end{enumerate}
+
+	\subsubsection*{b)}
+	Zu Zeigen: $f_n$ LOOP-berechenbar, $\mathcal{O}\left(n\right)$ LOOP-Schleifen
+	\begin{align*}
+		\text{\textbf{IA: }} &n = 1\\
+		&f_n\left(k\right) = \underbrace{a\left(1,k\right) = k+2}_{\text{LOOP berechenbar}}\\
+		\text{\textbf{IH: }} &f_n \text{ LOOP-berechenbar mit } \mathcal{O}\left(n\right) \text{LOOP-Schleifen}\\
+		&\text{für ein beliebiges, aber festes } n \in \mathbb{N}\\
+		\text{\textbf{IS: }} &n \rightarrow n+1\\
+		&f_{n+1}\left(k\right) = a\left(n+1,k\right)\\
+		&\overset{k \neq 0}{=} f_n\left(n,a\left(n+1, k-1\right)\right)\\
+		&= f_n\left(a\left(n+1, k-1\right)\right) = f_n\left(f_{n+1}\left(k-1\right)\right)\\
+		&=\left(f_n^k\right)\left(a\left(n+1,0\right)\right)\\
+		&=\left(f_n^k\right)\left(a\left(n,1\right)\right)\\
+		&=\left(f_n^k\right)\left(f_n\left(1\right)\right)\\
+		&=f_n^{k+1}\left(1\right)
+	\end{align*}
+	\begin{center}
+		$\Rightarrow$ Somit ist $f_{n+1}$ mit $\mathcal{O}\left(n+1\right)$ LOOP berechenbar
+	\end{center}
+ 	\hfill $\square$
+	
+\end{document}
