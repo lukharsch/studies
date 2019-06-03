@@ -80,5 +80,33 @@
 		\end{cases}
 	\end{align*}
 	
+	\subsubsection*{b)}
+	$A \cup B$ ist entscheidbar
+	\begin{center}
+		$\mathcal{X}_{A \cup B} \left(w\right) = \mathcal{X}_{A} \left(w\right) \cup \mathcal{X}_{B} \left(w\right)$\\
+		
+		$\Rightarrow$ Charakteristische Funktion ist berechenbar, also entscheidbar
+	\end{center}
+
+	\subsubsection*{c)}
+	$AB$ ist entscheidbar
+	\begin{center}
+		$\mathcal{X}_{AB} \left(w\right) = \underbrace{\max \left\lbrace \underbrace{\mathcal{X}_{A} \left(y\right) \wedge \mathcal{X}_{B} \left(z\right)}_{= 1\text{ oder }0} | \underbrace{x = yz \text{und} y,z \in \Sigma ^{*}}_{:= b1}\right\rbrace}_{\text{Nur 1, wenn }y\text{ in }A\text{ \textbf{und} }z\text{ in }B\text{ liegt mit Bedingung }b1}$\\
+		
+		$\Rightarrow$ Charakteristische Funktion ist berechenbar, also entscheidbar
+	\end{center}
 	
+	\subsubsection*{d)}
+	$A^*$ ist entscheidbar
+	\begin{align*}
+		&A^* := \bigcup \limits_{n \geq 0} A^n\\
+		&A^n := \left\lbrace w | w = w_1,w_2,\cdots,w_n \text{ mit } w_i \in A\right\rbrace
+	\end{align*}
+	\begin{center}
+		$\mathcal{X}_{A^*} \left(x\right) = \bigvee \limits_{n=1} ^{\left|x\right|} \bigvee \limits_{x=x_1,\cdots,x_n} \bigwedge \limits_{i=1}^{n} \mathcal{X}_{A} \left(x_i\right)$
+	\end{center}
+	\newpage
+	
+	\subsubsection*{e)}
+	$A \cup B$ ist entscheidbar
 \end{document}
