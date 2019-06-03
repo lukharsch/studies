@@ -108,5 +108,44 @@
 	\newpage
 	
 	\subsubsection*{e)}
-	$A \cup B$ ist entscheidbar
+	$C \cup D$ ist semi-entscheidbar\\
+	
+	Sei $M_C$ der Entscheidungsalgorithmus für die Sprache $C$, analog für die Sprache $D$
+	\begin{algorithm}[H]
+		\KwData{Input $x$}
+		\For{$s=1,2,\cdots$}{
+			\If{$M_C$ hält bei Eingabe $x$ in $s$ Schritten}{
+				Output 1\;
+				Stop\;
+			}
+			\If{$M_D$ hält bei Eingabe $x$ in $s$ Schritten}{
+				Output 1\;
+				Stop\;
+			}
+		}
+		\caption{$C \cup D$ ist semi-entscheidbar}
+	\end{algorithm}
+	$\Rightarrow$ Hier muss nur entweder $M_C$ oder $M_D$ 1 sein, wegen der Semi-Entscheidbarkeit
+	
+	\subsubsection*{f)}
+	$C \cap D$ ist semi-entscheidbar\\
+	
+	Sei $M_C$ der Entscheidungsalgorithmus für die Sprache $C$, analog für die Sprache $D$
+	\begin{algorithm}[H]
+		\KwData{Input $x$}
+		\For{$s=1,2,\cdots$}{
+			\If{$M_C$ hält bei Eingabe $x$ in $s$ Schritten}{
+				\If{$M_D$ hält bei Eingabe $x$ in $s$ Schritten}{
+					Output 1\;
+					Stop\;
+				}
+			}
+		}
+		\caption{$C \cup D$ ist semi-entscheidbar}
+	\end{algorithm}
+	$\Rightarrow$ Hier muss der Algorithmus für $M_C$ und $M_D$ in abzählbar vielen Schritte mit der Eingabe $x$ halten, sodass der Algorithmus eine 1 ausgibt
+	\newpage
+	
+	\section*{Aufgabe 3}
+	Zu zeigen: $f\left(n\right)$ berechenbar und $L$ entscheidbar
 \end{document}
