@@ -17,6 +17,7 @@
 \usepackage{struktex}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage[noeepic]{qtree}
 
 \newcommand{\Fach}{Logik}
 \newcommand{\Name}{Lukas Harsch}
@@ -68,5 +69,35 @@
 	
 	\section*{Aufgabe 2.1}
 	\subsubsection*{a)}
+	Jede Hornformel, in der keine Faktenklauseln vorkommen, ist erfüllbar.\\
+	\begin{center}
+		\underline{WAHR}, denn dann kann die Hornformel nur noch aus definiten Hornklauseln, also z.B. $\left(A \rightarrow B\right)$ oder Zielklauseln, z.B. $\left(\lnot C\right)$ bestehen.\\
+		Nun lässt sich eine Belegung finden, die bei jeder solcher Hornformel ein Model ist, nämlich wenn alle Literale auf 0 gesetzt werden.
+	\end{center}
 	
+	\subsubsection*{b)}
+	Jede Hornformel, in der keine Zielklauseln vorkommen, ist erfüllbar.\\
+	\begin{center}
+		\underline{WAHR}, denn die Hornformel kann dann nur noch aus Faktenklauseln, also z.B. $A$ und definiten Klauseln bestehen.\\
+		Auch hier lässt sich eine Belegung finden, die bei jeder solcher Hornformel Model ist, nämlich wenn alle Literale auf 1 gesetzt werden.
+	\end{center}
+	
+	\subsubsection*{c)}
+	Bei der Resolution zweier Hornklauseln kann eine Klausel entstehen, die keine Hornklausel ist.\\
+	\begin{center}
+		\underline{FALSCH} - Hornklauseln haben maximal ein positives Literal. Da bei der Resolution in einer der beiden Klauseln maximal ein positives Literal verschwindet, kann die resultierende Klausel wieder maximal ein positives Literal haben.
+	\end{center}
+ 	\hfill $\square$
+ 	
+ 	\section*{Aufgabe 2.4}
+ 	\subsubsection*{a)}
+ 	\begin{enumerate}[1.]
+ 		\item $B \vee W$ \hfill $B$: Bier, $W$: Wein, $C$: Cola
+ 		\item $\lnot W \vee C$
+ 		\item $B \vee W \vee C$
+ 	\end{enumerate}
+ 
+ 	\subsubsection*{b)}
+ 	\Tree [.B, W [.B [.C eins ] [.D zwei ] ].B [.E {3 und 4} ] ].B, W
+ 	
 \end{document}
