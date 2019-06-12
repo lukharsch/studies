@@ -69,18 +69,40 @@
 	
 	\section*{Aufgabe 3.1}
 	"Ahnlich zum Beweis der Widerlegungsvollständigkeit im Skript:\\
-	Beweis durch Induktion über die Anzahl $n$ der in Formel $F$ vorkommenden atomaren Formeln.
-	\begin{align*}
-		&\text{\underline{IA:}} &\text{Falls } n = 0 \text{, so kann nur } F = \left\lbrace \square\right\rbrace \text{ sein und wir sind fertig}\\
-		&\text{\underline{IH:}} &\text{Für eine unerfüllbare Formel } F \text{ mit } n \text{ atomaren Formeln gibt es einen Unerfüllbarkeitsbeweis, der die Regeln der P-Resolution folgt}\\
-		&\text{\underline{IS:}} &\text{Betrachte eine unerfüllbare Formel } F \text{ mit } n+1 \text{ atomaren Formeln.}\\
-		& &\text{Erzeuge } F_0 \text{ und } F_1 \text{ wie folgt:}\\
-		& & F_0 \text{ entsteht aus } F \text{, indem jedes Vorkommen von } A_{n+1} \text{ in einer Klausel gestrichen wird. Dies entspricht dem Belegen von } A_{n+1} \text{ mit 0.}\\
-		& & \text{Analog entsteht } F_1 \text{ aus } F \text{, also als Belegung von } A_{n+1} \text{ mit 1.}\\
-		& & \text{Da } F \text{ unerfüllbar ist, müssen auch } F_0 \text{ und } F_1 \text{ unerfüllbar sein, ansonsten könnte aus deren erfüllender Belegung eine erfüllende Belegung für } F \text{ konstruiert werden.}\\
-		& & \text{Da}
-	\end{align*}
+	
+	Beweis durch Induktion über die Anzahl $n$ der in Formel $F$ vorkommenden atomaren Formeln.\\
+	
+	\underline{IA:}\\
+	Falls $n = 0$, so kann nur $F = \left\lbrace \square\right\rbrace$ sein und wir sind fertig\\
+	\underline{IH:}\\
+	Für eine unerfüllbare Formel $F$ mit $n$ atomaren Formeln gibt es einen Unerfüllbarkeitsbeweis, der die Regeln der P-Resolution folgt\\
+	\underline{IS:}\\
+	Betrachte eine unerfüllbare Formel $F$ mit $n+1$ atomaren Formeln.\\
+	Erzeuge $F_0$ und $F_1$ wie folgt:\\
+	$F_0$ entsteht aus $F$, indem jedes Vorkommen von $A_{n+1}$ in einer Klausel gestrichen wird. Dies entspricht dem Belegen von $A_{n+1}$ mit 0.\\
+	Analog entsteht $F_1$ aus $F$, also als Belegung von $A_{n+1}$ mit 1.\\
+	Da $F$ unerfüllbar ist, müssen auch $F_0$ und $F_1$ unerfüllbar sein, ansonsten könnte aus deren erfüllender Belegung eine erfüllende Belegung für $F$ konstruiert werden.\\
 
+	Da $A_{n+1}$ in $F_0$ und $F_1$ nicht mehr vorkommt, haben $F_0$ und $F_1$ nur noch $n$ atomare Formeln und wir können die \underline{IH} anwenden und erhalten einen Unerfüllbarkeitsbeweis mittels P-Resolution für $F_0 \left(K_0^1, K_0^2, K_0^3, \cdots, K_0^m\right)$ und $F_1 \left(K_1^1, K_1^2, K_1^3, \cdots, K_1^l\right)$, mit $K_0^m = K_1^l = \square$.\\
+	Fügen wir nun die atomaren Formeln wieder in die Klauseln der Unerfüllbarkeitsbeweise von Formel $F_0$ und $F_1$ ein, können wir zwischen zwei Fällen unterscheiden:
+	\begin{enumerate}[1.]
+		\item Trotz Wiedereinfügen von $A_{n+1}$ führen die gleichen Resolutionsschritte des Unerfüllbarkeitsbeweises von $F_0$ zur leeren Klausel.\\
+		Dann sind wir fertig.
+		\item Folgen des Beweises von $F_0$ nach Wiedereinfügen von $A_{n+1}$ führt nicht zur leeren Klausel. Dann muss $K^m = \left\lbrace A_{n+1}\right\rbrace$ sein. Resolviert man $K^m$ mit jeder Klausel aus $F$, entstehen die Klauseln, die in $F_1$ vorkommen.\\
+		Folgen wir nun dem Beweis von $F_1$, erhalten wir die leere Klausel.
+	\end{enumerate}
+	\hfill $\square$
+	\newpage
+	\underline{Beispiel:} Induktionsschritt mit $n+1 = 4$
+	\begin{align*}
+		&F = \left\lbrace \left\lbrace A_1\right\rbrace, \left\lbrace \overline{A_2}, A_4\right\rbrace, \left\lbrace \overline{A_1}, A_2, A_4\right\rbrace, \left\lbrace A_3, \overline{A_4}\right\rbrace, \left\lbrace \overline{A_1}, \overline{A_3}, \overline{A_4}\right\rbrace\right\rbrace
+	\end{align*}
+	\begin{align*}
+		&F = \left\lbrace \left\lbrace A_1\right\rbrace, \left\lbrace \overline{A_2}\right\rbrace, \left\lbrace \overline{A_1}, A_2\right\rbrace\right\rbrace &\left( A_n \text{ wird mit 0 belegt}\right)\\
+		&F = \left\lbrace \left\lbrace A_1\right\rbrace, \left\lbrace A_3\right\rbrace, \left\lbrace \overline{A_1}, \overline{A_3}\right\rbrace\right\rbrace &\left( A_n \text{ wird mit 1 belegt}\right)\\
+	\end{align*}
+	Baum siehe Bild, TODO
+	
 	\section*{Aufgabe 3.2}
 	\subsubsection*{a)}
 	Zeige die Aussage, indem gezeigt wird, dass höchstens $4^n$ Klauseln existieren können.\\
