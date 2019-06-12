@@ -1,0 +1,129 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[noeepic]{qtree}
+
+\newcommand{\Fach}{Logik}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{3}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 3.1}
+	"Ahnlich zum Beweis der Widerlegungsvollständigkeit im Skript:\\
+	Beweis durch Induktion über die Anzahl $n$ der in Formel $F$ vorkommenden atomaren Formeln.
+	\begin{align*}
+		&\text{\underline{IA:}} &\text{Falls } n = 0 \text{, so kann nur } F = \left\lbrace \square\right\rbrace \text{ sein und wir sind fertig}\\
+		&\text{\underline{IH:}} &\text{Für eine unerfüllbare Formel } F \text{ mit } n \text{ atomaren Formeln gibt es einen Unerfüllbarkeitsbeweis, der die Regeln der P-Resolution folgt}\\
+		&\text{\underline{IS:}} &\text{Betrachte eine unerfüllbare Formel } F \text{ mit } n+1 \text{ atomaren Formeln.}\\
+		& &\text{Erzeuge } F_0 \text{ und } F_1 \text{ wie folgt:}\\
+		& & F_0 \text{ entsteht aus } F \text{, indem jedes Vorkommen von } A_{n+1} \text{ in einer Klausel gestrichen wird. Dies entspricht dem Belegen von } A_{n+1} \text{ mit 0.}\\
+		& & \text{Analog entsteht } F_1 \text{ aus } F \text{, also als Belegung von } A_{n+1} \text{ mit 1.}\\
+		& & \text{Da } F \text{ unerfüllbar ist, müssen auch } F_0 \text{ und } F_1 \text{ unerfüllbar sein, ansonsten könnte aus deren erfüllender Belegung eine erfüllende Belegung für } F \text{ konstruiert werden.}\\
+		& & \text{Da}
+	\end{align*}
+
+	\section*{Aufgabe 3.2}
+	\subsubsection*{a)}
+	Zeige die Aussage, indem gezeigt wird, dass höchstens $4^n$ Klauseln existieren können.\\
+	
+	Betrachtet man eine Klausel, kann eine Atomformel auf genau vier verschiedene Arten darin auftreten: gar nicht, positiv, negativ oder positiv \textit{und} negativ. Diese vier Optionen gibt es für jede Atomformel, die Kombination aller dieser Optionen gibt also alle möglichen Klauseln, was $4^n$ sind. 
+	
+	\subsubsection*{b)}
+	Betrachten wir die Folge $F = Res^0\left(F\right)$, $Res^1\left(F\right)$, $\cdots$, $Res^k\left(F\right) = Res^*\left(F\right)$.\\
+	
+	Im schlimmsten Fall unterscheidet sich $Res^i\left(F\right)$ und $Res^{i+1}\left(F\right)$ nur durch genau eine Klausel, also $\left|Res^0\left(F\right)\right| - \left|Res^0\left(F\right)\right| = 1$ für alle $i$. Da $\left|Res^0\left(F\right)\right|$ und wir aus a) wissen, dass $\left|Res^*\left(F\right)\right| \leq 4^n$, wissen wir nun auch, dass nach spätestens $4^n$ Schritten alle möglichen Klauseln entstanden sind.\\
+	
+	Also ist $Res^k\left(F\right) = Res^{4^n}\left(F\right) = Res^*\left(F\right)$.\\
+	(In den meisten Fällen geschieht das aber schon viel früher)
+	
+	\section*{Aufgabe 3.3}
+	Aus der Definition von Resolution folgt:\\
+	
+	$F$ ist unerfüllbar $\Rightarrow$ $F$ lässt sich zu $\square$ resolvieren.\\
+	
+	Somit kann der Algorithmus Unerfüllbarkeit erkennen (weil wir aus Aufgabe 1 wissen, dass es nur maximal $4^n$ Klauseln geben kann um überhaupt erst resolvieren zu können).\\
+	Wenn $F$ nach einer gescheiterten Resolution \textit{nicht} $\square$ ausgibt, so ist $F$ erfüllbar. 
+	
+	
+	\section*{Aufgabe 3.4}
+	\begin{center}
+		$F = \forall x \forall y \forall z \left(\left(E\left(x,y\right) \wedge E\left(y,z\right)\right) \rightarrow \overline{E\left(x,z\right)}\right)$
+	\end{center}
+	\subsubsection*{a)}
+	$\mathcal{A}$ ist ein Modell für $F$. Argumentation durch Widerspruch:\\
+	
+	Angenommen $\mathcal{A}$ sei kein Modell. Dann gäbe es eine Belegung der Variablen, sodass $F^{\mathcal{A}}$ zu 0 ausgewertet wird.\\
+	Dies kann nur der Fall sein, wenn die linke Seite der Implikation zu 1 ausgewertet wird und die rechte Seite zu 0.\\
+	Die Grundmenge sind die natürlichen Zahlen, daher wissen wir, dass die Summe zweier Zahlen ungerade ist, genau dann wenn eine der beiden Zahlen gerade und die andere ungerade ist.
+	\begin{enumerate}[1.]
+		\item $x$ ist gerade: Damit der linke Teil der Implikation zu 1 ausgewertet wird, muss $y$ ungerade sein und dadurch $z$ gerade.\\
+		Da aber $x$ und $z$ gerade $\Rightarrow$ rechte Seite der Implikation 1.
+		\item $x$ ist ungerade: (Analog zu a)) 
+	\end{enumerate}
+
+	\subsubsection*{b)}
+	$\mathcal{B}$ ist kein Modell.\\
+	
+	Betrachte dazu folgenden Fall: $\left(x=0, y=0, z=0\right)$
+	
+
+\end{document}
