@@ -1,0 +1,115 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+%\usepackage{algorithm}
+%\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+
+\newcommand{\Fach}{Berechenbarkeit und Komplexität}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{6}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+%\lstset{ %
+%	language=java,
+%	basicstyle=\footnotesize\tt,
+%	showtabs=false,
+%	tabsize=2,
+%	captionpos=b,
+%	breaklines=true,
+%	extendedchars=true,
+%	showstringspaces=false,
+%	flexiblecolumns=true,
+%}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 1}
+	$A$ rekursive Aufzählung $\Rightarrow$ $A$ semi-entscheidbar
+	
+	\section*{Aufgabe 2}
+	\subsubsection*{a)}
+	$K \preccurlyeq K \times \overline{K}$\\
+	
+	
+	$K$ ist nicht entscheidbar.\\
+	Es muss gezeigt werden:
+	\begin{align*}
+		&f: \left\lbrace 0,1\right\rbrace^* \rightarrow \left\lbrace 0,1\right\rbrace^* * \left\lbrace 0,1\right\rbrace^*\\
+		&w \in K \Leftrightarrow f\left( w \right) \in K \times \overline{K}\\
+		&k \subset \left\lbrace 0,1\right\rbrace^*\\
+		&y \in \overline{K} \neq \emptyset\\
+		&f\left( w\right) = \left(w,y\right) \forall w \in \left\lbrace 0,1\right\rbrace^*
+	\end{align*}
+	\subsubsection*{b)}
+	$\overline{K}$ ist nicht reduzierbar auf $K$\\
+	
+	$K$ ist semi-entscheidbar
+	\begin{algorithm}
+		\KwData{Eingabe $w$}
+		\For{$s = 1,2,3, \cdots$}{for-block}
+		
+		\caption{$\overline{K}$ ist nicht reduzierbar auf $K$}
+	\end{algorithm}
+	
+	\subsubsection*{c)}
+	
+	\section*{Aufgabe 3}
+	\subsubsection*{a)}
+	\underline{Ja}, weil ein Programm angegeben werden kann bzw. $f$ in endlichen Schritten hält.
+	\subsubsection*{b)}
+	\underline{Ja}, denn $x \neq y \Rightarrow f\left(x\right) \neq f\left(y\right)$
+	\subsubsection*{c)}
+	$M_{f\left( x \right)} \left( y\right) = \begin{cases}
+		1 \text{, falls } x \neq y\\
+		0 \text{, sonst}
+	\end{cases}$
+	\subsubsection*{d)}
+	$K \cap \left\lbrace f \left( i  \right) : i \in \mathbb{N} \right\rbrace = \left\lbrace f\left( i\right) : i \in \mathbb{N} \right\rbrace$\\
+	\hspace*{1cm} weil $f\left( i\right)$ genau dann mit 1 hält, wenn es auf sich selbst hält
+
+\end{document}
