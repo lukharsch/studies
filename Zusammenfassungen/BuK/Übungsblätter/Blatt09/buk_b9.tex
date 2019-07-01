@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+%\usepackage{algorithm}
+%\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+
+\newcommand{\Fach}{Berechenbarkeit und Komplexität}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{9}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+%\lstset{ %
+%	language=java,
+%	basicstyle=\footnotesize\tt,
+%	showtabs=false,
+%	tabsize=2,
+%	captionpos=b,
+%	breaklines=true,
+%	extendedchars=true,
+%	showstringspaces=false,
+%	flexiblecolumns=true,
+%}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 1}
+	\subsubsection*{a)}
+	\hspace*{1cm}$x=y$\\
+	Falsch, trivial. Beispiel $x=1$, $y=2$
+	\subsubsection*{b)}
+	\hspace*{1cm}$\exists y \left(x+1=y\right)$\\
+	Richtig, $\mathbb{N}$ ist abzählbar unendlich und somit hat jede Zahl $x$ einen Nachfolger $y$
+	\subsubsection*{c)}
+	\hspace*{1cm}$\forall u\forall v \left(\left(\lnot \left(u \cdot v = x\right)\right)\vee \left(u = 1\right) \vee \left(v = 1\right)\right)$\\
+	Nur für $x=1$ oder $x=\pi$ wahr. Für zum Beispiel $u=2$, $v=2$ und $x=4$ falsch, da $2 \cdot 2 = u \cdot v = 4$. Wegen dem Allquantor ist die Aussage also falsch.
+	\section{Aufgabe 2}
+	Siehe Skript S.53\\
+	
+\end{document}
