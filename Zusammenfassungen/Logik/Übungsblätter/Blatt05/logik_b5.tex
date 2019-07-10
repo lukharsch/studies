@@ -1,0 +1,132 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[ngerman,german]{babel}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[noeepic]{qtree}
+
+\newcommand{\Fach}{Logik}
+\newcommand{\Name}{Lukas Harsch}
+\newcommand{\Matrikelnummer}{979272}
+\newcommand{\Semester}{Sommersemester 2019}
+\newcommand{\Kapitel}{5}
+\newcommand{\Titel}{}
+
+\setlength{\parindent}{0em}
+\topmargin 0cm
+\oddsidemargin 0cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.0in}
+
+\hypersetup{
+	pdftitle={\Fach{}: "Ubungsblatt \Kapitel{}},
+	pdfauthor={\Name},
+	pdfborder={0 0 0}
+}
+
+\lstset{ %
+	language=java,
+	basicstyle=\footnotesize\tt,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	extendedchars=true,
+	showstringspaces=false,
+	flexiblecolumns=true,
+}
+
+\title{"Ubungsblatt \Kapitel}
+\author{\Name{}}
+
+\begin{document}
+	\thispagestyle{fancy}
+	\lhead{\sf \small \Name{}}
+	\chead{\sf \small \Fach}
+	\rhead{\sf \small \Semester{}}
+	\rfoot{\sf \tiny Keine Gewähr auf Richtigkeit und Vollständigkeit}
+	\lfoot{\sf \tiny CC BY-NC-SA}
+	\begin{center}
+		\LARGE \sf \textbf{"Ubungsblatt \Kapitel}\\
+		\LARGE \sf \Titel
+	\end{center}
+	\vspace*{0.2cm}
+	
+	\section*{Aufgabe 5.1}
+	$F = \exists x \forall y \exists z \forall w P \left(x,y,z,w\right)$\\
+	$G = \forall y \forall w P \left(a,y,f \left(y\right), w\right)$
+	
+	\section*{Aufgabe 5.2}
+	\begin{enumerate}[1.]
+		\item $F = \exists y \forall x \left( P\left(y,x,f\left(h\left(x\right),y\right)\right)\right)$
+		\item $F = \forall x \exists z \left(p\left(a,x,f\left(z,y\right)\right)\right)$
+		\item $F = \exists y \forall x \exists z \left(P\left(y,x,f\left(z,y\right)\right)\right)$
+	\end{enumerate}
+
+	\section*{Aufgabe 5.3}
+	\begin{enumerate}[a)]
+		\item $\exists w \forall x \left(\forall y \exists z \lnot P \left(x,y\right) \wedge Q \left(x,z,a,w\right)\right)$\\
+		$\overset{\text{Pränex}}{=} \exists w \forall x \forall y \left(\lnot P\left(x,y\right) \wedge \lnot Q \left(x,z,a,w\right)\right)$\\
+		$\overset{\text{Skolem}}{\rightarrow} \forall x \forall y \left(\lnot P\left(x,y\right) \wedge \lnot Q \left(x,z,a,b\right)\right)$\\
+		\begin{align*}
+			D\left(F\right) = \left\lbrace a,b \right\rbrace
+		\end{align*}
+		
+		\item $\exists w \forall x \left(\lnot \forall y \left(P \left(x,y\right) \vee \exists y Q  \left(x,y,a,w\right)\right)\right)$\\
+		$\overset{\text{Pränex}}{=} \exists w \forall x \exists y \exists z \left(\lnot P\left(x,y\right) \vee Q \left(x,z,a,w\right)\right)$\\
+		$\overset{\text{Skolem}}{\rightarrow} \forall x \left(\lnot P\left(x,f \left(x\right)\right) \vee Q \left(x,g \left(x\right),a,b\right)\right)$\\
+		\begin{align*}
+			D\left(F\right) = &\text{\{} a,b,f\left(a\right),f\left(b\right),g\left(a\right),g\left(b\right),f\left(f\left(a\right)\right),f\left(f\left(b\right)\right),\\
+			&f\left(g\left(a\right)\right),f\left(g\left(b\right)\right),g\left(f\left(a\right)\right),g\left(f\left(b\right)\right),g\left(g\left(a\right)\right),g\left(g\left(b\right)\right),...\text{\}}
+		\end{align*}
+		
+		\item $\overset{\text{Pränex}}{=} \forall x \exists y \forall z \exists w \left( P\left(y,x\right) \vee P\left(x,z\right)\vee P\left(w,y\right)\right)$\\
+		$\overset{\text{Skolem}}{\rightarrow} \forall x \forall z \left( P\left(f \left(x\right), x\right) \vee P \left(x,z\right) \vee P \left(g\left(x,z\right),f\left(x\right)\right)\right)$\\
+		\begin{align*}
+			D\left(F\right) = &\text{\{} a, f\left(a\right), g\left(a,a\right), f\left(f\left(a\right)\right), f\left(g\left(a,a\right)\right),\\
+			&g\left(f\left(a\right),a\right), g\left(a, f\left(a\right)\right), g\left(g\left(a,a\right),a\right),g\left(a, g\left(a,a\right)\right),...\text{\}}
+		\end{align*}
+	\end{enumerate}
+
+	\section*{Aufgabe 5.4}
+	\begin{enumerate}[a)]
+		\item $D \left(F\right) = \left\lbrace a, f\left(a\right), f\left(f\left(a\right)\right),...\right\rbrace$\\
+		$E\left(F\right) = \left\lbrace P\left(f\left(a\right), a\right) \vee \lnot P \left(a, f\left(a\right)\right) \left[x/a\right] \left[y/a\right] \left[z/a\right],... *\right\rbrace$\\
+		\\
+		\hspace*{3cm} * $\left[x/a\right] \left[y/a\right] \left[z/a\right]$ auch mit $f\left(a\right)$ und $ f\left(f\left(a\right)\right)$ statt $a$\\
+		\hspace*{3cm} $\Rightarrow$ Insgesamt also $3^3$ Elemente in der Herbrand-Expansion
+		\item $D \left(F\right) = \left\lbrace a\right\rbrace$\\
+		$E\left(F\right) = \left\lbrace P\left(a,a,a\right) \wedge \lnot P \left(a,a,a\right) \right\rbrace$
+		\item $D \left(F\right) = \left\lbrace a,b\right\rbrace$\\
+		$E\left(F\right) = \left\lbrace P\left(a,a\right) \wedge \lnot P \left(a,a\right) \wedge P \left(b,a\right) \left[x/a\right] \left[y/a\right] \left[z/a\right],...*\right\rbrace$\\
+		\\
+		\hspace*{3cm} * $\left[x/a\right] \left[y/a\right] \left[z/a\right]$ auch mit jeweils $b$ statt $a$\\
+		\hspace*{3cm} $\Rightarrow$ Insgesamt also $3^2$ Elemente in der Herbrand-Expansion
+	\end{enumerate}
+
+	\section*{Aufgabe 5.5}
+	Falls $F$ keine Funktionssymbole der Stelligkeit $> 0$ enthält, so enthält $D \left(F\right)$ (Herbrand-Universum) lediglich die in $F$ vorkommenden Konstanten und ist somit endlich.\\
+	Deshalb ist die Menge aller zu $F$ passenden Herbrand-Strukturen ebenfalls endlich (d.h. die Menge aller möglichen Interpretationen der Prädikatsymbole, wenn die Grundmenge $D\left(F\right)$ ist), und es kann in endlicher Zeit überprüft werden, ob eine dieser Strukturen ein Modell für $F$ ist.\\
+	
+	\textbf{$F$ ist erfüllbar genau dann wenn $F$ ein Herbrand-Modell besitzt}, also ist die Erfüllbarkeit von $F$ entscheidbar.\\
+
+	
+	\section*{Aufgabe 5.6}
+	Zum Beispiel: \hspace*{0.5cm} $F = \forall x \left(P \left(a,b,x\right)\right)$
+
+\end{document}
